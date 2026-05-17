@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:strings="clr-namespace:CityExplorer.Resources.Strings"
+             x:Class="CityExplorer.Views.PlaceFormPage"
+             Title="{Binding FormTitle}"
+             BackgroundColor="#170800">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{Binding [Form_Cancel], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                     Clicked="OnCancelClicked"
+                     Order="Primary"
+                     Priority="0"/>
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="14">
+
+            <Border Stroke="#3d1800"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 18"
+                    BackgroundColor="#251200"
+                    HeightRequest="210">
+                <Border.Shadow>
+                    <Shadow Brush="#000000" Opacity="0.30" Radius="12" Offset="0,4"/>
+                </Border.Shadow>
+
+                <Grid RowDefinitions="*,Auto">
+                    <Grid Grid.Row="0">
+                        <BoxView BackgroundColor="#3d1800"/>
+                        <ActivityIndicator IsRunning="{Binding IsBusy}"
+                                           Color="#ea580c"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"/>
+                        <Image Source="{Binding ImageUrl}"
+                               Aspect="AspectFill"
+                               IsVisible="{Binding HasImage}"/>
+                    </Grid>
+
+                    <Button Grid.Row="1"
+                            Text="{Binding [Form_Photo], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                            BackgroundColor="#ea580c"
+                            TextColor="White"
+                            CornerRadius="0"
+                            HeightRequest="44"
+                            FontSize="13"
+                            FontAttributes="Bold"
+                            Command="{Binding PickPhotoCommand}"/>
+                </Grid>
+            </Border>
+
+            <VerticalStackLayout Spacing="8">
+                <Label Text="{Binding [Form_Category], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                       FontSize="12"
+                       FontAttributes="Bold"
+                       TextColor="#c07848"
+                       Margin="4,0"/>
+
+                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+
+                    <Border Grid.Column="0"
+                            Stroke="Transparent"
+                            StrokeShape="RoundRectangle 14"
+                            BackgroundColor="{Binding HistoryBtnColor}">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SelectEmojiCommand}"
+                                                  CommandParameter="🏰"/>
+                        </Border.GestureRecognizers>
+                        <Label Text="{Binding [Category_History], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               TextColor="White"
+                               HorizontalOptions="Center"
+                               Padding="0,14"/>
+                    </Border>
+
+                    <Border Grid.Column="1"
+                            Stroke="Transparent"
+                            StrokeShape="RoundRectangle 14"
+                            BackgroundColor="{Binding ParksBtnColor}">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SelectEmojiCommand}"
+                                                  CommandParameter="🌳"/>
+                        </Border.GestureRecognizers>
+                        <Label Text="{Binding [Category_Parks], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               TextColor="White"
+                               HorizontalOptions="Center"
+                               Padding="0,14"/>
+                    </Border>
+
+                    <Border Grid.Column="2"
+                            Stroke="Transparent"
+                            StrokeShape="RoundRectangle 14"
+                            BackgroundColor="{Binding FoodBtnColor}">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SelectEmojiCommand}"
+                                                  CommandParameter="🍽️"/>
+                        </Border.GestureRecognizers>
+                        <Label Text="{Binding [Category_Food], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               TextColor="White"
+                               HorizontalOptions="Center"
+                               Padding="0,14"/>
+                    </Border>
+
+                </Grid>
+            </VerticalStackLayout>
+
+            <Border Stroke="#3d1800"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 18"
+                    BackgroundColor="#251200"
+                    Padding="16,14">
+                <Border.Shadow>
+                    <Shadow Brush="#000000" Opacity="0.25" Radius="8" Offset="0,2"/>
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="14">
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="{Binding [Form_Name], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                               FontSize="12" FontAttributes="Bold" TextColor="#c07848"/>
+                        <Border Stroke="#4a2010" StrokeThickness="1" StrokeShape="RoundRectangle 10"
+                                Padding="12,0" BackgroundColor="#1a0800">
+                            <Entry Text="{Binding Name}"
+                                   Placeholder="nt. Raekoja plats"
+                                   PlaceholderColor="#5a3020"
+                                   TextColor="#ffffff"
+                                   FontSize="14"
+                                   BackgroundColor="Transparent"/>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="{Binding [Form_Description], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                               FontSize="12" FontAttributes="Bold" TextColor="#c07848"/>
+                        <Border Stroke="#4a2010" StrokeThickness="1" StrokeShape="RoundRectangle 10"
+                                Padding="12,0" BackgroundColor="#1a0800">
+                            <Entry Text="{Binding Description}"
+                                   Placeholder="nt. Tallinna südalinn"
+                                   PlaceholderColor="#5a3020"
+                                   TextColor="#ffffff"
+                                   FontSize="14"
+                                   BackgroundColor="Transparent"/>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="{Binding [Form_FullDesc], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                               FontSize="12" FontAttributes="Bold" TextColor="#c07848"/>
+                        <Border Stroke="#4a2010" StrokeThickness="1" StrokeShape="RoundRectangle 10"
+                                Padding="12,6" BackgroundColor="#1a0800">
+                            <Editor Text="{Binding FullDescription}"
+                                    Placeholder="Kirjelda kohta lähemalt..."
+                                    PlaceholderColor="#5a3020"
+                                    TextColor="#ffffff"
+                                    FontSize="14"
+                                    AutoSize="TextChanges"
+                                    MinimumHeightRequest="80"
+                                    BackgroundColor="Transparent"/>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="{Binding [Form_Address], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                               FontSize="12" FontAttributes="Bold" TextColor="#c07848"/>
+                        <Border Stroke="#4a2010" StrokeThickness="1" StrokeShape="RoundRectangle 10"
+                                Padding="12,0" BackgroundColor="#1a0800">
+                            <Entry Text="{Binding Address}"
+                                   Placeholder="nt. Raekoja plats 1, Tallinn"
+                                   PlaceholderColor="#5a3020"
+                                   TextColor="#ffffff"
+                                   FontSize="14"
+                                   BackgroundColor="Transparent"/>
+                        </Border>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="{Binding [Form_Save], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                    BackgroundColor="#ea580c"
+                    TextColor="White"
+                    CornerRadius="14"
+                    HeightRequest="52"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    Clicked="OnSaveClicked"
+                    Margin="0,4,0,20">
+                <Button.Shadow>
+                    <Shadow Brush="#ea580c" Opacity="0.40" Radius="14" Offset="0,5"/>
+                </Button.Shadow>
+            </Button>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

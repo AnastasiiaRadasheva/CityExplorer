@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:strings="clr-namespace:CityExplorer.Resources.Strings"
+             x:Class="CityExplorer.Views.SettingsPage"
+             Title="{Binding [Tab_Settings], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+             BackgroundColor="#170800">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <Grid Grid.Row="0" BackgroundColor="#ea580c" Padding="20,16,20,18">
+            <Label Text="{Binding [Settings_Title], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   TextColor="White"/>
+        </Grid>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20" Spacing="16">
+
+                <Border Stroke="#3d1800"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 18"
+                        BackgroundColor="#251200"
+                        Padding="18,16">
+                    <Border.Shadow>
+                        <Shadow Brush="#000000" Opacity="0.30" Radius="10" Offset="0,3"/>
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="{Binding [Settings_AppInfo], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="#ffffff"/>
+                        <Label Text="{Binding [Settings_AppDesc], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                               FontSize="13"
+                               TextColor="#c07848"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <VerticalStackLayout Spacing="4" Margin="4,8,4,0">
+                    <Label Text="{Binding [Settings_SelectLang], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           TextColor="#ffffff"/>
+                    <Label Text="{Binding [Settings_LangDesc], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                           FontSize="12"
+                           TextColor="#7a4020"/>
+                </VerticalStackLayout>
+
+                <Border Stroke="Transparent"
+                        StrokeShape="RoundRectangle 16"
+                        BackgroundColor="{Binding EtBtnColor}"
+                        Padding="18,16">
+                    <Border.Shadow>
+                        <Shadow Brush="#000000" Opacity="0.25" Radius="8" Offset="0,2"/>
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SetEstonianCommand}"/>
+                    </Border.GestureRecognizers>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Grid.Column="0"
+                               Text="{Binding [Btn_Estonian], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               TextColor="{Binding EtTextColor}"
+                               VerticalOptions="Center"/>
+                        <Label Grid.Column="1"
+                               Text="✓"
+                               FontSize="18"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               IsVisible="{Binding IsEtSelected}"/>
+                    </Grid>
+                </Border>
+
+                <Border Stroke="Transparent"
+                        StrokeShape="RoundRectangle 16"
+                        BackgroundColor="{Binding EnBtnColor}"
+                        Padding="18,16">
+                    <Border.Shadow>
+                        <Shadow Brush="#000000" Opacity="0.25" Radius="8" Offset="0,2"/>
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SetEnglishCommand}"/>
+                    </Border.GestureRecognizers>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Grid.Column="0"
+                               Text="{Binding [Btn_English], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               TextColor="{Binding EnTextColor}"
+                               VerticalOptions="Center"/>
+                        <Label Grid.Column="1"
+                               Text="✓"
+                               FontSize="18"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               IsVisible="{Binding IsEnSelected}"/>
+                    </Grid>
+                </Border>
+
+                <Border Stroke="Transparent"
+                        StrokeShape="RoundRectangle 16"
+                        BackgroundColor="{Binding RuBtnColor}"
+                        Padding="18,16">
+                    <Border.Shadow>
+                        <Shadow Brush="#000000" Opacity="0.25" Radius="8" Offset="0,2"/>
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SetRussianCommand}"/>
+                    </Border.GestureRecognizers>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Grid.Column="0"
+                               Text="{Binding [Btn_Russian], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               TextColor="{Binding RuTextColor}"
+                               VerticalOptions="Center"/>
+                        <Label Grid.Column="1"
+                               Text="✓"
+                               FontSize="18"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               IsVisible="{Binding IsRuSelected}"/>
+                    </Grid>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </Grid>
+</ContentPage>

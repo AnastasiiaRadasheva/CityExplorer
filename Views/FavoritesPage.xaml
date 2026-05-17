@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:strings="clr-namespace:CityExplorer.Resources.Strings"
+             x:Class="CityExplorer.Views.FavoritesPage"
+             x:Name="FavoritesPageRoot"
+             Title="{Binding [Tab_Favorites], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+             BackgroundColor="#170800">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <Grid Grid.Row="0" BackgroundColor="#ea580c" Padding="20,16,20,18">
+            <Label Text="{Binding [Favorites_Title], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   TextColor="White"/>
+        </Grid>
+
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Favorites}"
+                        Margin="0,8,0,0">
+
+            <CollectionView.EmptyView>
+                <VerticalStackLayout VerticalOptions="Center"
+                                     HorizontalOptions="Center"
+                                     Spacing="12"
+                                     Margin="40,0">
+                    <Label Text="{Binding [Favorites_Empty], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                           FontSize="17"
+                           FontAttributes="Bold"
+                           TextColor="#ea580c"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center"/>
+                    <Label Text="{Binding [Favorites_Empty_Sub], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                           FontSize="13"
+                           TextColor="#7a3a18"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center"/>
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView Margin="12,5">
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem
+                                    Text="{Binding [Swipe_Delete], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                                    BackgroundColor="#b91c1c"
+                                    Command="{Binding BindingContext.DeleteCommand, Source={x:Reference FavoritesPageRoot}}"
+                                    CommandParameter="{Binding .}"/>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+
+                        <Border Stroke="#3d1800"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 16"
+                                BackgroundColor="#251200">
+                            <Border.Shadow>
+                                <Shadow Brush="#000000" Opacity="0.30" Radius="10" Offset="0,3"/>
+                            </Border.Shadow>
+
+                            <Grid ColumnDefinitions="72,*,Auto" Padding="0,0,14,0">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding BindingContext.ShowDetailsCommand, Source={x:Reference FavoritesPageRoot}}"
+                                        CommandParameter="{Binding .}"/>
+                                </Grid.GestureRecognizers>
+
+                                <Grid Grid.Column="0" WidthRequest="72">
+                                    <Grid.Clip>
+                                        <RoundRectangleGeometry Rect="0,0,72,72" CornerRadius="16,0,0,16"/>
+                                    </Grid.Clip>
+                                    <BoxView BackgroundColor="{Binding CardColor}"/>
+                                    <Image Source="{Binding ImageUrl}"
+                                           Aspect="AspectFill"
+                                           HeightRequest="72"
+                                           WidthRequest="72"/>
+                                </Grid>
+
+                                <VerticalStackLayout Grid.Column="1"
+                                                     VerticalOptions="Center"
+                                                     Spacing="3"
+                                                     Padding="12,10,0,10">
+                                    <Label Text="{Binding Name}"
+                                           FontSize="15"
+                                           FontAttributes="Bold"
+                                           TextColor="#ffffff"/>
+                                    <Label Text="{Binding Description}"
+                                           FontSize="12"
+                                           TextColor="#c07848"
+                                           LineBreakMode="TailTruncation"/>
+                                    <Label Text="{Binding Address}"
+                                           FontSize="11"
+                                           TextColor="#7a4020"
+                                           LineBreakMode="TailTruncation"/>
+                                </VerticalStackLayout>
+
+                                <Label Grid.Column="2"
+                                       Text="›"
+                                       FontSize="24"
+                                       TextColor="#ea580c"
+                                       VerticalOptions="Center"/>
+                            </Grid>
+                        </Border>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

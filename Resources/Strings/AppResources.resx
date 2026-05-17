@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- Tabs -->
+  <data name="Tab_Explore" xml:space="preserve">
+    <value>Avasta</value>
+  </data>
+  <data name="Tab_Favorites" xml:space="preserve">
+    <value>Lemmikud</value>
+  </data>
+  <data name="Tab_Settings" xml:space="preserve">
+    <value>Seaded</value>
+  </data>
+
+  <!-- Explore page -->
+  <data name="Explore_Subtitle" xml:space="preserve">
+    <value>Avasta Tallinna parimad kohad</value>
+  </data>
+  <data name="Category_History" xml:space="preserve">
+    <value>Ajalugu</value>
+  </data>
+  <data name="Category_Parks" xml:space="preserve">
+    <value>Pargid</value>
+  </data>
+  <data name="Category_Food" xml:space="preserve">
+    <value>Toidukohad</value>
+  </data>
+  <data name="Btn_AddFavorites" xml:space="preserve">
+    <value>⭐ Lisa lemmikutesse</value>
+  </data>
+  <data name="Btn_Details" xml:space="preserve">
+    <value>Vaata lähemalt</value>
+  </data>
+  <data name="Alert_Added_Title" xml:space="preserve">
+    <value>Lisatud!</value>
+  </data>
+  <data name="Alert_Added_Msg" xml:space="preserve">
+    <value>lisati lemmikutesse.</value>
+  </data>
+  <data name="Alert_Already_Title" xml:space="preserve">
+    <value>Juba olemas</value>
+  </data>
+  <data name="Alert_Already_Msg" xml:space="preserve">
+    <value>on juba lemmikutes.</value>
+  </data>
+
+  <!-- Favorites page -->
+  <data name="Favorites_Title" xml:space="preserve">
+    <value>Minu lemmikud</value>
+  </data>
+  <data name="Favorites_Empty" xml:space="preserve">
+    <value>Lemmikuid pole veel lisatud 😔</value>
+  </data>
+  <data name="Favorites_Empty_Sub" xml:space="preserve">
+    <value>Vajuta kaardile ja lisa koht lemmikutesse</value>
+  </data>
+  <data name="Swipe_Delete" xml:space="preserve">
+    <value>Kustuta</value>
+  </data>
+
+  <!-- Settings page -->
+  <data name="Settings_Title" xml:space="preserve">
+    <value>Seaded</value>
+  </data>
+  <data name="Settings_SelectLang" xml:space="preserve">
+    <value>Vali rakenduse keel</value>
+  </data>
+  <data name="Settings_LangDesc" xml:space="preserve">
+    <value>Tekst muutub kohe pärast keele valimist</value>
+  </data>
+  <data name="Btn_Estonian" xml:space="preserve">
+    <value>🇪🇪  Eesti keel</value>
+  </data>
+  <data name="Btn_English" xml:space="preserve">
+    <value>🇬🇧  English</value>
+  </data>
+  <data name="Btn_Russian" xml:space="preserve">
+    <value>🇷🇺  Русский</value>
+  </data>
+  <data name="Settings_AppInfo" xml:space="preserve">
+    <value>CityExplorer v1.0</value>
+  </data>
+  <data name="Settings_AppDesc" xml:space="preserve">
+    <value>Nutikas Tallinna giid</value>
+  </data>
+
+  <!-- Admin / Developer mode -->
+  <data name="Tab_Admin" xml:space="preserve">
+    <value>Arendaja</value>
+  </data>
+  <data name="Admin_Title" xml:space="preserve">
+    <value>Kohade haldus</value>
+  </data>
+  <data name="Admin_AddBtn" xml:space="preserve">
+    <value>Lisa uus koht</value>
+  </data>
+  <data name="Admin_Empty" xml:space="preserve">
+    <value>Kohti pole veel lisatud</value>
+  </data>
+  <data name="Admin_Places_Count" xml:space="preserve">
+    <value>koht andmebaasis</value>
+  </data>
+  <data name="Form_AddTitle" xml:space="preserve">
+    <value>Lisa uus koht</value>
+  </data>
+  <data name="Form_EditTitle" xml:space="preserve">
+    <value>Muuda kohta</value>
+  </data>
+  <data name="Form_Name" xml:space="preserve">
+    <value>Koha nimi *</value>
+  </data>
+  <data name="Form_Description" xml:space="preserve">
+    <value>Lühikirjeldus *</value>
+  </data>
+  <data name="Form_FullDesc" xml:space="preserve">
+    <value>Täielik kirjeldus</value>
+  </data>
+  <data name="Form_Address" xml:space="preserve">
+    <value>Aadress</value>
+  </data>
+  <data name="Form_Category" xml:space="preserve">
+    <value>Kategooria</value>
+  </data>
+  <data name="Form_Photo" xml:space="preserve">
+    <value>📷  Vali foto galeriist</value>
+  </data>
+  <data name="Form_PhotoSelected" xml:space="preserve">
+    <value>✅  Foto valitud</value>
+  </data>
+  <data name="Form_Save" xml:space="preserve">
+    <value>Salvesta</value>
+  </data>
+  <data name="Form_Cancel" xml:space="preserve">
+    <value>Tühista</value>
+  </data>
+  <data name="Form_Required" xml:space="preserve">
+    <value>Palun täida kohustuslikud väljad (*)!</value>
+  </data>
+  <data name="Swipe_Remove" xml:space="preserve">
+    <value>Eemalda</value>
+  </data>
+
+  <!-- Common -->
+  <data name="Alert_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Alert_Close" xml:space="preserve">
+    <value>Sulge</value>
+  </data>
+  <data name="Alert_Address" xml:space="preserve">
+    <value>📍 Aadress</value>
+  </data>
+</root>

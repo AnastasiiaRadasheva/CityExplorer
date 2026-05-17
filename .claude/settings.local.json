@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:commons.wikimedia.org)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "PowerShell(cd \"C:\\\\Users\\\\edw1e\\\\source\\\\repos\\\\CityExplorer\"; dotnet build -f net10.0-windows10.0.19041.0 2>&1 | Where-Object { $_ -match \"error|warning|succeeded|failed\" } | Select-Object -Last 10)",
+      "PowerShell(New-Item -ItemType Directory -Path \"C:\\\\Users\\\\edw1e\\\\source\\\\repos\\\\CityExplorer\\\\Data\" -Force)",
+      "Bash(dotnet build *)"
+    ]
+  }
+}

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="Tab_Explore" xml:space="preserve">
+    <value>Explore</value>
+  </data>
+  <data name="Tab_Favorites" xml:space="preserve">
+    <value>Favorites</value>
+  </data>
+  <data name="Tab_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+
+  <data name="Explore_Subtitle" xml:space="preserve">
+    <value>Discover the best places in Tallinn</value>
+  </data>
+  <data name="Category_History" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="Category_Parks" xml:space="preserve">
+    <value>Parks</value>
+  </data>
+  <data name="Category_Food" xml:space="preserve">
+    <value>Restaurants</value>
+  </data>
+  <data name="Btn_AddFavorites" xml:space="preserve">
+    <value>⭐ Add to Favorites</value>
+  </data>
+  <data name="Btn_Details" xml:space="preserve">
+    <value>View Details</value>
+  </data>
+  <data name="Alert_Added_Title" xml:space="preserve">
+    <value>Added!</value>
+  </data>
+  <data name="Alert_Added_Msg" xml:space="preserve">
+    <value>was added to favorites.</value>
+  </data>
+  <data name="Alert_Already_Title" xml:space="preserve">
+    <value>Already saved</value>
+  </data>
+  <data name="Alert_Already_Msg" xml:space="preserve">
+    <value>is already in favorites.</value>
+  </data>
+
+  <data name="Favorites_Title" xml:space="preserve">
+    <value>My Favorites</value>
+  </data>
+  <data name="Favorites_Empty" xml:space="preserve">
+    <value>No favorites added yet 😔</value>
+  </data>
+  <data name="Favorites_Empty_Sub" xml:space="preserve">
+    <value>Tap a card and add a place to favorites</value>
+  </data>
+  <data name="Swipe_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+
+  <data name="Settings_Title" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Settings_SelectLang" xml:space="preserve">
+    <value>Select App Language</value>
+  </data>
+  <data name="Settings_LangDesc" xml:space="preserve">
+    <value>Text changes immediately after selecting a language</value>
+  </data>
+  <data name="Btn_Estonian" xml:space="preserve">
+    <value>🇪🇪  Estonian</value>
+  </data>
+  <data name="Btn_English" xml:space="preserve">
+    <value>🇬🇧  English</value>
+  </data>
+  <data name="Btn_Russian" xml:space="preserve">
+    <value>🇷🇺  Russian</value>
+  </data>
+  <data name="Settings_AppInfo" xml:space="preserve">
+    <value>CityExplorer v1.0</value>
+  </data>
+  <data name="Settings_AppDesc" xml:space="preserve">
+    <value>Smart Tallinn Guide</value>
+  </data>
+
+  <data name="Tab_Admin" xml:space="preserve">
+    <value>Dev Mode</value>
+  </data>
+  <data name="Admin_Title" xml:space="preserve">
+    <value>Place Management</value>
+  </data>
+  <data name="Admin_AddBtn" xml:space="preserve">
+    <value>Add New Place</value>
+  </data>
+  <data name="Admin_Empty" xml:space="preserve">
+    <value>No places added yet</value>
+  </data>
+  <data name="Admin_Places_Count" xml:space="preserve">
+    <value>places in database</value>
+  </data>
+  <data name="Form_AddTitle" xml:space="preserve">
+    <value>Add New Place</value>
+  </data>
+  <data name="Form_EditTitle" xml:space="preserve">
+    <value>Edit Place</value>
+  </data>
+  <data name="Form_Name" xml:space="preserve">
+    <value>Place name *</value>
+  </data>
+  <data name="Form_Description" xml:space="preserve">
+    <value>Short description *</value>
+  </data>
+  <data name="Form_FullDesc" xml:space="preserve">
+    <value>Full description</value>
+  </data>
+  <data name="Form_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="Form_Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Form_Photo" xml:space="preserve">
+    <value>📷  Choose photo from gallery</value>
+  </data>
+  <data name="Form_PhotoSelected" xml:space="preserve">
+    <value>✅  Photo selected</value>
+  </data>
+  <data name="Form_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Form_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Form_Required" xml:space="preserve">
+    <value>Please fill in required fields (*)!</value>
+  </data>
+  <data name="Swipe_Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+
+  <data name="Alert_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Alert_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Alert_Address" xml:space="preserve">
+    <value>📍 Address</value>
+  </data>
+</root>

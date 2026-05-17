@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:strings="clr-namespace:CityExplorer.Resources.Strings"
+             x:Class="CityExplorer.Views.AdminPage"
+             x:Name="AdminPageRoot"
+             Title="{Binding [Tab_Admin], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+             BackgroundColor="#170800">
+
+    <Grid RowDefinitions="Auto,Auto,*">
+
+        <Grid Grid.Row="0" BackgroundColor="#ea580c" Padding="20,16,20,18">
+            <Grid ColumnDefinitions="*,Auto">
+                <VerticalStackLayout Grid.Column="0" Spacing="2">
+                    <Label Text="Developer"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           TextColor="White"/>
+                    <Label Text="{Binding [Admin_Title], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                           FontSize="12"
+                           TextColor="#ffd5a8"/>
+                </VerticalStackLayout>
+
+                <Border Grid.Column="1"
+                        BackgroundColor="#b84000"
+                        Stroke="Transparent"
+                        StrokeShape="RoundRectangle 12"
+                        Padding="12,6"
+                        VerticalOptions="Center">
+                    <HorizontalStackLayout Spacing="5">
+                        <Label Text="{Binding AllPlaces.Count}"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="White"/>
+                        <Label Text="{Binding [Admin_Places_Count], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                               FontSize="10"
+                               TextColor="#ffd5a8"
+                               VerticalOptions="End"
+                               Margin="0,0,0,2"/>
+                    </HorizontalStackLayout>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1" BackgroundColor="#170800" Padding="16,14">
+            <Button Text="{Binding [Admin_AddBtn], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                    BackgroundColor="#ea580c"
+                    TextColor="White"
+                    CornerRadius="14"
+                    HeightRequest="48"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    Clicked="OnAddClicked">
+                <Button.Shadow>
+                    <Shadow Brush="#ea580c" Opacity="0.35" Radius="12" Offset="0,4"/>
+                </Button.Shadow>
+            </Button>
+        </Grid>
+
+        <CollectionView Grid.Row="2"
+                        ItemsSource="{Binding AllPlaces}">
+
+            <CollectionView.EmptyView>
+                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center"
+                                     Spacing="10" Margin="40,0">
+                    <Label Text="{Binding [Admin_Empty], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                           FontSize="16"
+                           TextColor="#ea580c"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center"/>
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView Margin="12,5">
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="{Binding [Swipe_Delete], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                                           BackgroundColor="#b91c1c"
+                                           Command="{Binding BindingContext.DeleteCommand, Source={x:Reference AdminPageRoot}}"
+                                           CommandParameter="{Binding .}"/>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+
+                        <Border Stroke="#3d1800"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 16"
+                                BackgroundColor="#251200">
+                            <Border.Shadow>
+                                <Shadow Brush="#000000" Opacity="0.30" Radius="10" Offset="0,3"/>
+                            </Border.Shadow>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnEditTapped"/>
+                            </Border.GestureRecognizers>
+
+                            <Grid ColumnDefinitions="72,*,Auto" Padding="0,0,14,0">
+
+                                <Grid Grid.Column="0" WidthRequest="72" HeightRequest="72">
+                                    <Grid.Clip>
+                                        <RoundRectangleGeometry Rect="0,0,72,72" CornerRadius="16,0,0,16"/>
+                                    </Grid.Clip>
+                                    <BoxView BackgroundColor="{Binding CardColor}"/>
+                                    <Image Source="{Binding ImageUrl}"
+                                           Aspect="AspectFill"
+                                           HeightRequest="72"
+                                           WidthRequest="72"/>
+                                </Grid>
+
+                                <VerticalStackLayout Grid.Column="1"
+                                                     VerticalOptions="Center"
+                                                     Spacing="3"
+                                                     Padding="12,10,0,10">
+                                    <Label Text="{Binding Name}"
+                                           FontSize="15"
+                                           FontAttributes="Bold"
+                                           TextColor="#ffffff"/>
+                                    <Label Text="{Binding Description}"
+                                           FontSize="12"
+                                           TextColor="#c07848"
+                                           LineBreakMode="TailTruncation"/>
+                                    <Label Text="{Binding Address}"
+                                           FontSize="11"
+                                           TextColor="#7a4020"
+                                           LineBreakMode="TailTruncation"/>
+                                </VerticalStackLayout>
+
+                                <Label Grid.Column="2"
+                                       Text="›"
+                                       FontSize="24"
+                                       TextColor="#ea580c"
+                                       VerticalOptions="Center"/>
+                            </Grid>
+                        </Border>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>
