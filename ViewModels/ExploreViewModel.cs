@@ -19,7 +19,7 @@ public class ExploreViewModel : BaseViewModel
     {
         new Category { Emoji = "🏰", TitleKey = "Category_History", Color = "#7c2d12" },
         new Category { Emoji = "🌳", TitleKey = "Category_Parks",   Color = "#14532d" },
-        new Category { Emoji = "🍽️", TitleKey = "Category_Food",    Color = "#9a3412" },
+        new Category { Emoji = "🍽️", TitleKey = "Category_Food",    Color = "#1e3a8a" },
     };
 
     private int _currentPosition;
@@ -60,8 +60,8 @@ public class ExploreViewModel : BaseViewModel
     {
         while (!ct.IsCancellationRequested)
         {
-            try { await Task.Delay(3500, ct); } 
-            catch (TaskCanceledException) { break; } 
+            try { await Task.Delay(6000, ct); }
+            catch (TaskCanceledException) { break; }
 
             if (ct.IsCancellationRequested || Places.Count == 0) break;
 
@@ -110,15 +110,18 @@ public class ExploreViewModel : BaseViewModel
 
     private async Task ShowDetailsAsync(Place place)
     {
+        StopAutoScroll();
+
         var addBtn   = LocalizationResourceManager.Instance["Btn_AddFavorites"]?.ToString() ?? "⭐";
         var closeBtn = LocalizationResourceManager.Instance["Alert_Close"]?.ToString() ?? "Sulge";
         var addrLbl  = LocalizationResourceManager.Instance["Alert_Address"]?.ToString() ?? "📍";
 
         var details = $"{place.FullDescription}\n\n{addrLbl}: {place.Address}";
-
-        var result = await CurrentPage.DisplayAlertAsync(place.Name, details, addBtn, closeBtn);
+        var result  = await CurrentPage.DisplayAlertAsync(place.Name, details, addBtn, closeBtn);
 
         if (result)
             await AddToFavoritesAsync(place);
+
+        StartAutoScroll();
     }
 }

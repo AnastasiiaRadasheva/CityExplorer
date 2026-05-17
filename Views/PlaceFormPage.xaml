@@ -66,12 +66,11 @@
                             <TapGestureRecognizer Command="{Binding SelectEmojiCommand}"
                                                   CommandParameter="🏰"/>
                         </Border.GestureRecognizers>
-                        <Label Text="{Binding [Category_History], Source={x:Static strings:LocalizationResourceManager.Instance}}"
-                               FontSize="13"
-                               FontAttributes="Bold"
-                               TextColor="White"
-                               HorizontalOptions="Center"
-                               Padding="0,14"/>
+                        <VerticalStackLayout Spacing="4" HorizontalOptions="Center" Padding="0,12">
+                            <Label Text="🏰" FontSize="28" HorizontalOptions="Center"/>
+                            <Label Text="{Binding [Category_History], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                                   FontSize="11" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
                     </Border>
 
                     <Border Grid.Column="1"
@@ -82,12 +81,11 @@
                             <TapGestureRecognizer Command="{Binding SelectEmojiCommand}"
                                                   CommandParameter="🌳"/>
                         </Border.GestureRecognizers>
-                        <Label Text="{Binding [Category_Parks], Source={x:Static strings:LocalizationResourceManager.Instance}}"
-                               FontSize="13"
-                               FontAttributes="Bold"
-                               TextColor="White"
-                               HorizontalOptions="Center"
-                               Padding="0,14"/>
+                        <VerticalStackLayout Spacing="4" HorizontalOptions="Center" Padding="0,12">
+                            <Label Text="🌳" FontSize="28" HorizontalOptions="Center"/>
+                            <Label Text="{Binding [Category_Parks], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                                   FontSize="11" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
                     </Border>
 
                     <Border Grid.Column="2"
@@ -98,12 +96,11 @@
                             <TapGestureRecognizer Command="{Binding SelectEmojiCommand}"
                                                   CommandParameter="🍽️"/>
                         </Border.GestureRecognizers>
-                        <Label Text="{Binding [Category_Food], Source={x:Static strings:LocalizationResourceManager.Instance}}"
-                               FontSize="13"
-                               FontAttributes="Bold"
-                               TextColor="White"
-                               HorizontalOptions="Center"
-                               Padding="0,14"/>
+                        <VerticalStackLayout Spacing="4" HorizontalOptions="Center" Padding="0,12">
+                            <Label Text="🍽️" FontSize="28" HorizontalOptions="Center"/>
+                            <Label Text="{Binding [Category_Food], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                                   FontSize="11" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
                     </Border>
 
                 </Grid>

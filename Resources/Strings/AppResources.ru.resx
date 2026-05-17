@@ -202,4 +202,7 @@
   <data name="Alert_Address" xml:space="preserve">
     <value>📍 Адрес</value>
   </data>
+  <data name="Filter_All" xml:space="preserve">
+    <value>Все</value>
+  </data>
 </root>

@@ -24,40 +24,49 @@
         <Grid Grid.Row="1" BackgroundColor="#ea580c" Padding="16,0,16,16">
             <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
 
-                <Border Padding="20,10"
+                <Border Padding="16,10"
                         StrokeShape="RoundRectangle 20"
                         Stroke="Transparent"
-                        BackgroundColor="#b84000">
+                        BackgroundColor="#7c2d12">
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding SelectCategoryCommand}"
                                               CommandParameter="{Binding Categories[0]}"/>
                     </Border.GestureRecognizers>
-                    <Label Text="{Binding [Category_History], Source={x:Static strings:LocalizationResourceManager.Instance}}"
-                           FontSize="13" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center"/>
+                    <VerticalStackLayout Spacing="3" HorizontalOptions="Center">
+                        <Label Text="🏰" FontSize="26" HorizontalOptions="Center"/>
+                        <Label Text="{Binding [Category_History], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                               FontSize="11" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
                 </Border>
 
-                <Border Padding="20,10"
+                <Border Padding="16,10"
                         StrokeShape="RoundRectangle 20"
                         Stroke="Transparent"
-                        BackgroundColor="#b84000">
+                        BackgroundColor="#14532d">
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding SelectCategoryCommand}"
                                               CommandParameter="{Binding Categories[1]}"/>
                     </Border.GestureRecognizers>
-                    <Label Text="{Binding [Category_Parks], Source={x:Static strings:LocalizationResourceManager.Instance}}"
-                           FontSize="13" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center"/>
+                    <VerticalStackLayout Spacing="3" HorizontalOptions="Center">
+                        <Label Text="🌳" FontSize="26" HorizontalOptions="Center"/>
+                        <Label Text="{Binding [Category_Parks], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                               FontSize="11" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
                 </Border>
 
-                <Border Padding="20,10"
+                <Border Padding="16,10"
                         StrokeShape="RoundRectangle 20"
                         Stroke="Transparent"
-                        BackgroundColor="#b84000">
+                        BackgroundColor="#1e3a8a">
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding SelectCategoryCommand}"
                                               CommandParameter="{Binding Categories[2]}"/>
                     </Border.GestureRecognizers>
-                    <Label Text="{Binding [Category_Food], Source={x:Static strings:LocalizationResourceManager.Instance}}"
-                           FontSize="13" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center"/>
+                    <VerticalStackLayout Spacing="3" HorizontalOptions="Center">
+                        <Label Text="🍽️" FontSize="26" HorizontalOptions="Center"/>
+                        <Label Text="{Binding [Category_Food], Source={x:Static strings:LocalizationResourceManager.Instance}}"
+                               FontSize="11" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
                 </Border>
 
             </HorizontalStackLayout>
@@ -76,7 +85,7 @@
                     <Grid Padding="8,0">
                         <Border Stroke="Transparent"
                                 StrokeShape="RoundRectangle 22"
-                                BackgroundColor="#251200">
+                                BackgroundColor="{Binding CardColor}">
                             <Border.Shadow>
                                 <Shadow Brush="#000000" Opacity="0.40" Radius="20" Offset="0,6"/>
                             </Border.Shadow>
@@ -93,7 +102,6 @@
                                             CommandParameter="{Binding .}"/>
                                     </Grid.GestureRecognizers>
 
-                                    <BoxView BackgroundColor="{Binding CardColor}"/>
                                     <Image Source="{Binding ImageUrl}" Aspect="AspectFill"/>
                                     <BoxView BackgroundColor="#80000000"
                                              VerticalOptions="End"
@@ -110,11 +118,11 @@
                                 <VerticalStackLayout Grid.Row="1" Padding="16,14,16,16" Spacing="10">
                                     <Label Text="{Binding Description}"
                                            FontSize="13"
-                                           TextColor="#d4a07a"
+                                           TextColor="#f0dcc8"
                                            LineBreakMode="WordWrap"/>
                                     <Label Text="{Binding Address}"
                                            FontSize="12"
-                                           TextColor="#7a4020"/>
+                                           TextColor="#b8a090"/>
                                     <Button
                                         Text="{Binding [Btn_AddFavorites], Source={x:Static strings:LocalizationResourceManager.Instance}}"
                                         BackgroundColor="#ea580c"

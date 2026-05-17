@@ -76,12 +76,11 @@ public class PlaceFormViewModel : BaseViewModel
         set => SetProperty(ref _isBusy, value);
     }
 
-    private static readonly Color Active   = Color.FromArgb("#ea580c");
-    private static readonly Color Inactive = Color.FromArgb("#3d1800");
+    private static readonly Color Inactive = Color.FromArgb("#2e1406");
 
-    public Color HistoryBtnColor => _selectedEmoji == "🏰" ? Active : Inactive;
-    public Color ParksBtnColor   => _selectedEmoji == "🌳" ? Active : Inactive;
-    public Color FoodBtnColor    => _selectedEmoji == "🍽️" ? Active : Inactive;
+    public Color HistoryBtnColor => _selectedEmoji == "🏰" ? Color.FromArgb("#7c2d12") : Inactive;
+    public Color ParksBtnColor   => _selectedEmoji == "🌳" ? Color.FromArgb("#14532d") : Inactive;
+    public Color FoodBtnColor    => _selectedEmoji == "🍽️" ? Color.FromArgb("#1e3a8a") : Inactive;
 
     public bool IsEditMode => _existing != null;
 

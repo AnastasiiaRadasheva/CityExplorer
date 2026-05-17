@@ -83,10 +83,10 @@
                             </SwipeItems>
                         </SwipeView.RightItems>
 
-                        <Border Stroke="#3d1800"
-                                StrokeThickness="1"
+                        <Border Stroke="{Binding CardColor}"
+                                StrokeThickness="2"
                                 StrokeShape="RoundRectangle 16"
-                                BackgroundColor="#251200">
+                                BackgroundColor="#1a0800">
                             <Border.Shadow>
                                 <Shadow Brush="#000000" Opacity="0.30" Radius="10" Offset="0,3"/>
                             </Border.Shadow>
