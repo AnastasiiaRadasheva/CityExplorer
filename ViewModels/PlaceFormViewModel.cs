@@ -1,3 +1,5 @@
+
+
 using System.Windows.Input;
 using CityExplorer.Models;
 using CityExplorer.Services;
@@ -7,6 +9,7 @@ namespace CityExplorer.ViewModels;
 public class PlaceFormViewModel : BaseViewModel
 {
     private readonly DatabaseService _db;
+
     private readonly Place? _existing;
 
     private string _name = string.Empty;
@@ -45,6 +48,7 @@ public class PlaceFormViewModel : BaseViewModel
         {
             if (SetProperty(ref _selectedEmoji, value))
             {
+
                 OnPropertyChanged(nameof(HistoryBtnColor));
                 OnPropertyChanged(nameof(ParksBtnColor));
                 OnPropertyChanged(nameof(FoodBtnColor));
@@ -59,7 +63,7 @@ public class PlaceFormViewModel : BaseViewModel
         set
         {
             if (SetProperty(ref _imageUrl, value))
-                OnPropertyChanged(nameof(HasImage));
+                OnPropertyChanged(nameof(HasImage)); 
         }
     }
 
@@ -80,9 +84,11 @@ public class PlaceFormViewModel : BaseViewModel
     public Color FoodBtnColor    => _selectedEmoji == "🍽️" ? Active : Inactive;
 
     public bool IsEditMode => _existing != null;
+
     public string FormTitle => IsEditMode ? "Muuda kohta" : "Lisa uus koht";
 
     public ICommand SelectEmojiCommand { get; }
+
     public ICommand PickPhotoCommand   { get; }
 
     public PlaceFormViewModel(DatabaseService db, Place? existing = null)
@@ -115,7 +121,7 @@ public class PlaceFormViewModel : BaseViewModel
             };
 
             var result = await FilePicker.Default.PickAsync(options);
-            if (result == null) return;
+            if (result == null) return; // Пользователь отменил выбор.
 
             IsBusy = true;
 
@@ -123,7 +129,7 @@ public class PlaceFormViewModel : BaseViewModel
             Directory.CreateDirectory(photosDir);
 
             var ext      = Path.GetExtension(result.FileName).ToLowerInvariant();
-            var fileName = $"place_{Guid.NewGuid():N}{ext}";
+            var fileName = $"place_{Guid.NewGuid():N}{ext}"; // Уникальное имя файла.
             var destPath = Path.Combine(photosDir, fileName);
 
             using var src = await result.OpenReadAsync();
@@ -138,7 +144,7 @@ public class PlaceFormViewModel : BaseViewModel
         }
         finally
         {
-            IsBusy = false;
+            IsBusy = false; // Скрываем спиннер в любом случае.
         }
     }
 
@@ -148,6 +154,7 @@ public class PlaceFormViewModel : BaseViewModel
 
     public async Task SaveAsync()
     {
+    
         var place = _existing ?? new Place();
 
         place.Name            = Name.Trim();
@@ -156,7 +163,7 @@ public class PlaceFormViewModel : BaseViewModel
         place.Address         = Address.Trim();
         place.CategoryEmoji   = SelectedEmoji;
         place.ImageUrl        = ImageUrl.Trim();
-
+         
         await _db.SavePlaceAsync(place);
     }
 }

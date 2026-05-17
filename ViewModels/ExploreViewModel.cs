@@ -1,3 +1,4 @@
+
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using CityExplorer.Models;
@@ -8,6 +9,7 @@ namespace CityExplorer.ViewModels;
 
 public class ExploreViewModel : BaseViewModel
 {
+   
     private readonly DatabaseService _db;
     private CancellationTokenSource? _scrollCts;
 
@@ -26,7 +28,6 @@ public class ExploreViewModel : BaseViewModel
         get => _currentPosition;
         set => SetProperty(ref _currentPosition, value);
     }
-
     public ICommand SelectCategoryCommand { get; }
     public ICommand AddToFavoritesCommand { get; }
     public ICommand ShowDetailsCommand    { get; }
@@ -34,9 +35,13 @@ public class ExploreViewModel : BaseViewModel
     public ExploreViewModel(DatabaseService db)
     {
         _db = db;
+
         SelectCategoryCommand = new Command<Category>(async cat => await LoadPlacesAsync(cat.Emoji));
-        AddToFavoritesCommand = new Command<Place>(async p  => await AddToFavoritesAsync(p));
-        ShowDetailsCommand    = new Command<Place>(async p  => await ShowDetailsAsync(p));
+
+        AddToFavoritesCommand = new Command<Place>(async p => await AddToFavoritesAsync(p));
+
+        ShowDetailsCommand = new Command<Place>(async p => await ShowDetailsAsync(p));
+
         _ = LoadPlacesAsync("🏰");
     }
 
@@ -44,7 +49,7 @@ public class ExploreViewModel : BaseViewModel
 
     public void StartAutoScroll()
     {
-        _scrollCts?.Cancel();
+        _scrollCts?.Cancel(); // Останавливаем предыдущий цикл, если был.
         _scrollCts = new CancellationTokenSource();
         _ = AutoScrollLoopAsync(_scrollCts.Token);
     }
@@ -55,15 +60,15 @@ public class ExploreViewModel : BaseViewModel
     {
         while (!ct.IsCancellationRequested)
         {
-            try { await Task.Delay(3500, ct); }
-            catch (TaskCanceledException) { break; }
+            try { await Task.Delay(3500, ct); } 
+            catch (TaskCanceledException) { break; } 
 
             if (ct.IsCancellationRequested || Places.Count == 0) break;
 
             MainThread.BeginInvokeOnMainThread(() =>
             {
                 if (!ct.IsCancellationRequested && Places.Count > 0)
-                    CurrentPosition = (CurrentPosition + 1) % Places.Count;
+                    CurrentPosition = (CurrentPosition + 1) % Places.Count; // Зацикливаем.
             });
         }
     }
@@ -72,11 +77,13 @@ public class ExploreViewModel : BaseViewModel
     {
         Places.Clear();
         CurrentPosition = 0;
+
         var list = await _db.GetPlacesByCategoryAsync(emoji);
+
         foreach (var p in list)
         {
             p.ApplyCardColor();
-            Places.Add(p);
+            Places.Add(p); 
         }
     }
 
@@ -92,6 +99,7 @@ public class ExploreViewModel : BaseViewModel
         }
 
         place.IsFavorite = true;
+
         await _db.SavePlaceAsync(place);
 
         var title = LocalizationResourceManager.Instance["Alert_Added_Title"]?.ToString() ?? "";
@@ -107,7 +115,8 @@ public class ExploreViewModel : BaseViewModel
         var addrLbl  = LocalizationResourceManager.Instance["Alert_Address"]?.ToString() ?? "📍";
 
         var details = $"{place.FullDescription}\n\n{addrLbl}: {place.Address}";
-        var result  = await CurrentPage.DisplayAlertAsync(place.Name, details, addBtn, closeBtn);
+
+        var result = await CurrentPage.DisplayAlertAsync(place.Name, details, addBtn, closeBtn);
 
         if (result)
             await AddToFavoritesAsync(place);

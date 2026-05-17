@@ -1,12 +1,15 @@
+
+
 using CityExplorer.Models;
 
 namespace CityExplorer.Data;
 
 public static class DefaultPlaces
 {
+
     public static IEnumerable<Place> All => new[]
     {
-        // ─── 🏰 Ajalugu ────────────────────────────────────────────────────────
+
         new Place
         {
             Name            = "Toompea loss",
@@ -44,7 +47,7 @@ public static class DefaultPlaces
             ImageUrl        = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Catedral_de_Alejandro_Nevsky%2C_Tallin%2C_Estonia%2C_2012-08-11%2C_DD_46.JPG/800px-Catedral_de_Alejandro_Nevsky%2C_Tallin%2C_Estonia%2C_2012-08-11%2C_DD_46.JPG"
         },
 
-        // ─── 🌳 Pargid ─────────────────────────────────────────────────────────
+
         new Place
         {
             Name            = "Kadriorg park",
@@ -82,7 +85,6 @@ public static class DefaultPlaces
             ImageUrl        = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Jard%C3%ADn_Bot%C3%A1nico_de_Tallinn%2C_Estonia%2C_2012-08-12%2C_DD_05.JPG/960px-Jard%C3%ADn_Bot%C3%A1nico_de_Tallinn%2C_Estonia%2C_2012-08-12%2C_DD_05.JPG"
         },
 
-        // ─── 🍽️ Toidukohad ─────────────────────────────────────────────────────
         new Place
         {
             Name            = "Leib restoran",

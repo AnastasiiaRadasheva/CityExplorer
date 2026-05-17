@@ -1,9 +1,11 @@
+
 using SQLite;
 
 namespace CityExplorer.Models;
 
 public class Place
 {
+  
     [PrimaryKey, AutoIncrement]
     public int Id { get; set; }
 
@@ -13,7 +15,8 @@ public class Place
     public string Address         { get; set; } = string.Empty;
     public string CategoryEmoji   { get; set; } = string.Empty;
     public string ImageUrl        { get; set; } = string.Empty;
-    public bool   IsFavorite      { get; set; } = false;
+
+    public bool IsFavorite { get; set; } = false;
 
     [Ignore]
     public string CardColor { get; set; } = "#ea580c";

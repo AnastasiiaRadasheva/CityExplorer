@@ -1,3 +1,5 @@
+
+
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using CityExplorer.Models;
@@ -10,6 +12,7 @@ public class FavoritesViewModel : BaseViewModel
 {
     private readonly DatabaseService _db;
 
+  
     public ObservableCollection<Place> Favorites { get; } = new();
 
     public ICommand RemoveCommand      { get; }
@@ -25,10 +28,12 @@ public class FavoritesViewModel : BaseViewModel
     public async Task LoadFavoritesAsync()
     {
         Favorites.Clear();
+
         var list = await _db.GetFavoritesAsync();
+
         foreach (var p in list)
         {
-            p.ApplyCardColor();
+            p.ApplyCardColor(); 
             Favorites.Add(p);
         }
     }
@@ -36,7 +41,9 @@ public class FavoritesViewModel : BaseViewModel
     private async Task RemoveFavoriteAsync(Place place)
     {
         place.IsFavorite = false;
+
         await _db.SavePlaceAsync(place);
+
         Favorites.Remove(place);
     }
 
@@ -49,6 +56,7 @@ public class FavoritesViewModel : BaseViewModel
         var removeBtn = LocalizationResourceManager.Instance["Swipe_Remove"]?.ToString() ?? "Eemalda";
 
         var details  = $"{place.FullDescription}\n\n{addrLbl}: {place.Address}";
+
         var doRemove = await CurrentPage.DisplayAlertAsync(place.Name, details, removeBtn, closeBtn);
 
         if (doRemove)

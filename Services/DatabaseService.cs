@@ -1,3 +1,5 @@
+
+
 using SQLite;
 using CityExplorer.Data;
 using CityExplorer.Models;
@@ -6,20 +8,25 @@ namespace CityExplorer.Services;
 
 public class DatabaseService
 {
+  
     private readonly SQLiteAsyncConnection _db;
 
     public DatabaseService(string dbPath)
     {
         _db = new SQLiteAsyncConnection(dbPath);
+
         Task.Run(async () =>
         {
+          
             await _db.CreateTableAsync<Place>();
+
             await SeedAsync();
         }).GetAwaiter().GetResult();
     }
 
     private async Task SeedAsync()
     {
+
         if (Preferences.Default.Get("db_seeded_v2", false)) return;
 
         foreach (var p in DefaultPlaces.All)

@@ -1,3 +1,4 @@
+
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using CityExplorer.Models;
@@ -22,10 +23,13 @@ public class AdminViewModel : BaseViewModel
     public async Task LoadAsync()
     {
         AllPlaces.Clear();
+
+        
         var list = await _db.GetAllPlacesAsync();
+
         foreach (var p in list)
         {
-            p.ApplyCardColor();
+            p.ApplyCardColor(); 
             AllPlaces.Add(p);
         }
     }
@@ -33,6 +37,7 @@ public class AdminViewModel : BaseViewModel
     private async Task DeletePlaceAsync(Place place)
     {
         await _db.DeletePlaceAsync(place);
+
         AllPlaces.Remove(place);
     }
 }
