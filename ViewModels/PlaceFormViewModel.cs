@@ -120,7 +120,7 @@ public class PlaceFormViewModel : BaseViewModel
             };
 
             var result = await FilePicker.Default.PickAsync(options);
-            if (result == null) return; // Пользователь отменил выбор.
+            if (result == null) return; 
 
             IsBusy = true;
 
@@ -128,7 +128,7 @@ public class PlaceFormViewModel : BaseViewModel
             Directory.CreateDirectory(photosDir);
 
             var ext      = Path.GetExtension(result.FileName).ToLowerInvariant();
-            var fileName = $"place_{Guid.NewGuid():N}{ext}"; // Уникальное имя файла.
+            var fileName = $"place_{Guid.NewGuid():N}{ext}"; 
             var destPath = Path.Combine(photosDir, fileName);
 
             using var src = await result.OpenReadAsync();
@@ -143,7 +143,7 @@ public class PlaceFormViewModel : BaseViewModel
         }
         finally
         {
-            IsBusy = false; // Скрываем спиннер в любом случае.
+            IsBusy = false; 
         }
     }
 

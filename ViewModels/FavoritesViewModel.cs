@@ -10,12 +10,9 @@ public class FavoritesViewModel : BaseViewModel
 {
     private readonly DatabaseService _db;
 
-    // Полный список всех избранных из БД — не показывается напрямую.
-    // Favorites — отфильтрованный вид, который биндится к CollectionView.
     private List<Place> _allFavorites = new();
     public ObservableCollection<Place> Favorites { get; } = new();
 
-    // Текущая выбранная категория-фильтр. Пустая строка = "Все".
     private string _selectedCategory = string.Empty;
     public string SelectedCategory
     {
@@ -63,7 +60,6 @@ public class FavoritesViewModel : BaseViewModel
         SelectCategoryCommand = new Command<string>(cat => SelectedCategory = cat);
     }
 
-    // Загружает все избранные из БД, затем применяет текущий фильтр.
     public async Task LoadFavoritesAsync()
     {
         _allFavorites.Clear();
@@ -76,7 +72,6 @@ public class FavoritesViewModel : BaseViewModel
         ApplyFilter();
     }
 
-    // Перестраивает Favorites по текущему SelectedCategory.
     private void ApplyFilter()
     {
         Favorites.Clear();

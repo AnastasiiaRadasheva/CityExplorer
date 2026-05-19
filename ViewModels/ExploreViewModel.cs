@@ -49,7 +49,7 @@ public class ExploreViewModel : BaseViewModel
 
     public void StartAutoScroll()
     {
-        _scrollCts?.Cancel(); // Останавливаем предыдущий цикл, если был.
+        _scrollCts?.Cancel(); 
         _scrollCts = new CancellationTokenSource();
         _ = AutoScrollLoopAsync(_scrollCts.Token);
     }
@@ -68,7 +68,7 @@ public class ExploreViewModel : BaseViewModel
             MainThread.BeginInvokeOnMainThread(() =>
             {
                 if (!ct.IsCancellationRequested && Places.Count > 0)
-                    CurrentPosition = (CurrentPosition + 1) % Places.Count; // Зацикливаем.
+                    CurrentPosition = (CurrentPosition + 1) % Places.Count; 
             });
         }
     }
