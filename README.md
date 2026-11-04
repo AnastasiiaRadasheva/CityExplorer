@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🏰 City Explorer
+# City Explorer
 
 **Discover the best places in Tallinn**
 
